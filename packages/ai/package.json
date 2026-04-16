@@ -1,0 +1,17 @@
+{
+  "name": "@iter/ai",
+  "version": "0.0.1",
+  "private": true,
+  "main": "index.ts",
+  "scripts": {
+    "test": "vitest run",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.25.0",
+    "@iter/db": "*"
+  },
+  "devDependencies": {
+    "vitest": "^1.6.0"
+  }
+}
