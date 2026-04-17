@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { ChevronRight, ChevronLeft, Check } from 'lucide-react'
 
 type Step = 'welcome' | 'profile' | 'admin' | 'legal' | 'financial' | 'results'
@@ -15,6 +16,7 @@ const STEPS: { id: Step; label: string }[] = [
 ]
 
 export default function DiagnosticoPage() {
+  const router = useRouter()
   const [currentStep, setCurrentStep] = useState<Step>('welcome')
   const stepIndex = STEPS.findIndex((s) => s.id === currentStep)
   const progress = ((stepIndex) / (STEPS.length - 1)) * 100
@@ -255,7 +257,10 @@ export default function DiagnosticoPage() {
                   </div>
                 ))}
               </div>
-              <button className="px-6 py-3 bg-[#2E75B6] text-white rounded-lg font-medium hover:bg-[#1B2A4A] transition-colors">
+              <button
+                onClick={() => router.push('/dashboard')}
+                className="px-6 py-3 bg-[#2E75B6] text-white rounded-lg font-medium hover:bg-[#1B2A4A] transition-colors"
+              >
                 Ver Dashboard Completo →
               </button>
             </div>
